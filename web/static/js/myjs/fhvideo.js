@@ -484,7 +484,7 @@ var videoObject = {
 			//消息接收
 			websocket.onmessage = function(message) {
 				if("yes" == isopen){
-					var getMessage = message.data.split(',fh,');
+					var getMessage = message.data.split(',cangoonline,');
 					newDanmu(getMessage[0],getMessage[1]);
 				}
 			};
@@ -502,7 +502,7 @@ var videoObject = {
 			$("#danmu").focus();
 			return false;
 		}
-		websocket.send(userPhoto+",fh,"+$("#danmu").val());
+		websocket.send(userPhoto+",cangoonline,"+$("#danmu").val());
 		$("#danmu").val("");
 		$("#danmu").focus();
 	}

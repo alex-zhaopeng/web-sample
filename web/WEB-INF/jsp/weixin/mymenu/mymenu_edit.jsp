@@ -71,7 +71,7 @@ $(function(){
 		$("#titlexx").show();
 		$("#otherxx").hide();
 		$("#mtitle").html('一级菜单');
-		$("#menuname").val($("#M1").val().replace(",fh,",'').replace(",fh,",''));
+		$("#menuname").val($("#M1").val().replace(",cangoonline,",'').replace(",cangoonline,",''));
 		nowid = "one-a";
 		tid = "table-l";
 		$(".add-lw").removeClass("dis");
@@ -82,7 +82,7 @@ $(function(){
 		$("#titlexx").show();
 		$("#otherxx").hide();
 		$("#mtitle").html('一级菜单');
-		$("#menuname").val($("#M2").val().replace(",fh,",'').replace(",fh,",''));
+		$("#menuname").val($("#M2").val().replace(",cangoonline,",'').replace(",cangoonline,",''));
 		nowid = "two-a";
 		tid = "table-m";
 		$(".add-mw").removeClass("dis");
@@ -93,7 +93,7 @@ $(function(){
 		$("#titlexx").show();
 		$("#otherxx").hide();
 		$("#mtitle").html('一级菜单');
-		$("#menuname").val($("#M3").val().replace(",fh,",'').replace(",fh,",''));
+		$("#menuname").val($("#M3").val().replace(",cangoonline,",'').replace(",cangoonline,",''));
 		nowid = "three-a";
 		tid = "table-r";
 		$(".add-rw").removeClass("dis");
@@ -119,13 +119,13 @@ $(function(){
 			$("#mes-fx").removeClass("dis");
 			$("#mes-lx").addClass("dis");
 			$("#mtype").val("click");
-			$("#"+nowid).val($("#menuname").val()+',fh,'+$("#mtype").val()+',fh,'+$("#content1").val());
+			$("#"+nowid).val($("#menuname").val()+',cangoonline,'+$("#mtype").val()+',cangoonline,'+$("#content1").val());
 			});
 		$("#mes-l").click(function(){
 			$("#mes-lx").removeClass("dis");
 			$("#mes-fx").addClass("dis");
 			$("#mtype").val("view");
-			$("#"+nowid).val($("#menuname").val()+',fh,'+$("#mtype").val()+',fh,'+$("#content1").val());
+			$("#"+nowid).val($("#menuname").val()+',cangoonline,'+$("#mtype").val()+',cangoonline,'+$("#content1").val());
 			});
 		});
 });
@@ -138,7 +138,7 @@ $(function(){
 			$("#titlexx").show();
 			$("#mtitle").html('二级菜单');
 			var yvalue = $("#"+value).val();
-			var mvalue = yvalue.split(',fh,');
+			var mvalue = yvalue.split(',cangoonline,');
 			$("#menuname").val(mvalue[0]);
 			$("#mtype").val(mvalue[1]);
 			if('view' == mvalue[1]){
@@ -216,18 +216,18 @@ $(function(){
 				$("#"+nowid).html(tvalue);
 			}else{
 				$("#"+ermid).html(tvalue);
-				$("#"+nowid).val(value+',fh,'+$("#mtype").val()+',fh,'+$("#content1").val());
+				$("#"+nowid).val(value+',cangoonline,'+$("#mtype").val()+',cangoonline,'+$("#content1").val());
 			};
 		}
 		
 		//设置内容
 		function setContent(value){
-			$("#"+nowid).val($("#menuname").val()+',fh,'+$("#mtype").val()+',fh,'+value);
+			$("#"+nowid).val($("#menuname").val()+',cangoonline,'+$("#mtype").val()+',cangoonline,'+value);
 		}
 		
 		function addmenu1(){
 			$("#titlexx").show();
-			if('' == ($("#M1").val()).replace(",fh,",'').replace(",fh,",'')){
+			if('' == ($("#M1").val()).replace(",cangoonline,",'').replace(",cangoonline,",'')){
 				$("#menuname").tips({
 					side:1,
 		            msg:'请输入菜单名称',
@@ -249,7 +249,7 @@ $(function(){
 			$('#mes-f').click();
 			$("#content1").val("");
 			$("#content2").val("");
-			$("#M1"+n1).val('二级'+n1+',fh,click,fh,');
+			$("#M1"+n1).val('二级'+n1+',cangoonline,click,cangoonline,');
 			$("#otherxx").show();
 			$("#mtitle").html('二级菜单');
 			$("#table-l").css("height", $("#table-l").height() + 45);
@@ -259,7 +259,7 @@ $(function(){
 		
 		function addmenu2(){
 			$("#titlexx").show();
-			if('' == ($("#M2").val()).replace(",fh,",'').replace(",fh,",'')){
+			if('' == ($("#M2").val()).replace(",cangoonline,",'').replace(",cangoonline,",'')){
 				$("#menuname").tips({
 					side:1,
 		            msg:'请输入菜单名称',
@@ -281,7 +281,7 @@ $(function(){
 			$('#mes-f').click();
 			$("#content1").val("");
 			$("#content2").val("");
-			$("#M2"+n2).val('二级'+n2+',fh,click,fh,');
+			$("#M2"+n2).val('二级'+n2+',cangoonline,click,cangoonline,');
 			$("#otherxx").show();
 			$("#mtitle").html('二级菜单');
 			$("#table-m").css("height", $("#table-m").height() + 45);
@@ -291,7 +291,7 @@ $(function(){
 		
 		function addmenu3(){
 			$("#titlexx").show();
-			if('' == ($("#M3").val()).replace(",fh,",'').replace(",fh,",'')){
+			if('' == ($("#M3").val()).replace(",cangoonline,",'').replace(",cangoonline,",'')){
 				$("#menuname").tips({
 					side:1,
 		            msg:'请输入菜单名称',
@@ -313,7 +313,7 @@ $(function(){
 			$('#mes-f').click();
 			$("#content1").val("");
 			$("#content2").val("");
-			$("#M3"+n3).val('二级'+n3+',fh,click,fh,');
+			$("#M3"+n3).val('二级'+n3+',cangoonline,click,cangoonline,');
 			$("#otherxx").show();
 			$("#mtitle").html('二级菜单');
 			$("#table-r").css("height", $("#table-r").height() + 45);
@@ -323,9 +323,9 @@ $(function(){
 		
 		//生成菜单
 		function createM(){
-			var mym1 = $("#M1").val().replace(",fh,",'').replace(",fh,",'');
-			var mym2 = $("#M2").val().replace(",fh,",'').replace(",fh,",'');
-			var mym3 = $("#M3").val().replace(",fh,",'').replace(",fh,",'');
+			var mym1 = $("#M1").val().replace(",cangoonline,",'').replace(",cangoonline,",'');
+			var mym2 = $("#M2").val().replace(",cangoonline,",'').replace(",cangoonline,",'');
+			var mym3 = $("#M3").val().replace(",cangoonline,",'').replace(",cangoonline,",'');
 			if('' == mym1 && '' == mym2 && '' == mym3){
 				alert("还没添加菜单!");
 				return;
@@ -335,13 +335,13 @@ $(function(){
 		}
 		
 		function chushiMenu(){
-			var mym1 = $("#M1").val().replace(",fh,",'').replace(",fh,",'');
-			var mym2 = $("#M2").val().replace(",fh,",'').replace(",fh,",'');
-			var mym3 = $("#M3").val().replace(",fh,",'').replace(",fh,",'');
+			var mym1 = $("#M1").val().replace(",cangoonline,",'').replace(",cangoonline,",'');
+			var mym2 = $("#M2").val().replace(",cangoonline,",'').replace(",cangoonline,",'');
+			var mym3 = $("#M3").val().replace(",cangoonline,",'').replace(",cangoonline,",'');
 			if('' != mym3){
 				$("#three-a").html(mym3);
 				for(var i=1;i<6;i++){
-					var valm = $("#M3"+i).val().split(',fh,');
+					var valm = $("#M3"+i).val().split(',cangoonline,');
 					if("" != valm[0]){
 						csaddmenu3(valm[0]);
 						n3++;
@@ -356,7 +356,7 @@ $(function(){
 			if('' != mym2){
 				$("#two-a").html(mym2);
 				for(var i=1;i<6;i++){
-					var valm = $("#M2"+i).val().split(',fh,');
+					var valm = $("#M2"+i).val().split(',cangoonline,');
 					if("" != valm[0]){
 						csaddmenu2(valm[0]);
 						n2++;
@@ -371,7 +371,7 @@ $(function(){
 			if('' != mym1){
 				$("#one-a").html(mym1);
 				for(var i=1;i<6;i++){
-					var valm = $("#M1"+i).val().split(',fh,');
+					var valm = $("#M1"+i).val().split(',cangoonline,');
 					if("" != valm[0]){
 						csaddmenu1(valm[0]);
 						n1++;

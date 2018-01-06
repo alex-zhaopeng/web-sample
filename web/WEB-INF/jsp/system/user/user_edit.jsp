@@ -356,7 +356,7 @@
 	function removeRoleId(ROLE_ID){
 		var OROLE_IDS = $("#ROLE_IDS");
 		var ROLE_IDS = OROLE_IDS.val();
-		ROLE_IDS = ROLE_IDS.replace(ROLE_ID+",fh,","");
+		ROLE_IDS = ROLE_IDS.replace(ROLE_ID+",cangoonline,","");
 		OROLE_IDS.val(ROLE_IDS);
 	}
 	//添加副职角色
@@ -364,7 +364,7 @@
 		var OROLE_IDS = $("#ROLE_IDS");
 		var ROLE_IDS = OROLE_IDS.val();
 		if(!isContains(ROLE_IDS,ROLE_ID)){
-			ROLE_IDS = ROLE_IDS + ROLE_ID + ",fh,";
+			ROLE_IDS = ROLE_IDS + ROLE_ID + ",cangoonline,";
 			OROLE_IDS.val(ROLE_IDS);
 		}
 	}
