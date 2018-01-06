@@ -1,12 +1,12 @@
-package com.fh.service.${packageName}.${objectNameLower};
+package com.cangoonline.service.${packageName}.${objectNameLower};
 
 import java.util.List;
-import com.fh.entity.Page;
-import com.fh.util.PageData;
+import com.cangoonline.entity.Page;
+import com.cangoonline.util.PageData;
 
 /** 
  * 说明： ${TITLE}接口
- * 创建人：FH Q313596790
+ * 创建人：web
  * 创建时间：${nowDate?string("yyyy-MM-dd")}
  * @version
  */

@@ -11,13 +11,13 @@
 
 	<typeAliases>
 		
-		<typeAlias type="com.fh.util.PageData" alias="pd"/>
+		<typeAlias type="com.cangoonline.util.PageData" alias="pd"/>
 		<!-- 分页 -->
-		<typeAlias type="com.fh.entity.Page" alias="Page"/>
+		<typeAlias type="com.cangoonline.entity.Page" alias="Page"/>
 	</typeAliases>
 	
 	<plugins>
-		<plugin interceptor="com.fh.plugin.PagePlugin">
+		<plugin interceptor="com.cangoonline.plugin.PagePlugin">
 			<property name="dialect" value="mysql"/>
 			<property name="pageSqlId" value=".*listPage.*"/>
 		</plugin>

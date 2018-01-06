@@ -1,10 +1,10 @@
-package com.fh.entity.${packageName};
+package com.cangoonline.entity.${packageName};
 
 import java.util.List;
 
 /** 
  * 说明：${TITLE} 实体类
- * 创建人：FH Q313596790
+ * 创建人：web
  * 创建时间：${nowDate?string("yyyy-MM-dd")}
  */
 public class ${objectName}{ 

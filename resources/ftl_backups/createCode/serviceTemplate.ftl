@@ -1,16 +1,16 @@
-package com.fh.service.${packageName}.${objectNameLower}.impl;
+package com.cangoonline.service.${packageName}.${objectNameLower}.impl;
 
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
-import com.fh.dao.DaoSupport;
-import com.fh.entity.Page;
-import com.fh.util.PageData;
-import com.fh.service.${packageName}.${objectNameLower}.${objectName}Manager;
+import com.cangoonline.dao.DaoSupport;
+import com.cangoonline.entity.Page;
+import com.cangoonline.util.PageData;
+import com.cangoonline.service.${packageName}.${objectNameLower}.${objectName}Manager;
 
 /** 
  * 说明： ${TITLE}
- * 创建人：FH Q313596790
+ * 创建人：web
  * 创建时间：${nowDate?string("yyyy-MM-dd")}
  * @version
  */

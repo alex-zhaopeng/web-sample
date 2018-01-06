@@ -1,4 +1,4 @@
-package com.fh.controller.${packageName}.${objectNameLower};
+package com.cangoonline.controller.${packageName}.${objectNameLower};
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.fh.controller.base.BaseController;
-import com.fh.entity.Page;
-import com.fh.util.AppUtil;
-import com.fh.util.ObjectExcelView;
-import com.fh.util.PageData;
-import com.fh.util.Jurisdiction;
-import com.fh.util.Tools;
-import com.fh.service.${packageName}.${objectNameLower}.${objectName}Manager;
+import com.cangoonline.controller.base.BaseController;
+import com.cangoonline.entity.Page;
+import com.cangoonline.util.AppUtil;
+import com.cangoonline.util.ObjectExcelView;
+import com.cangoonline.util.PageData;
+import com.cangoonline.util.Jurisdiction;
+import com.cangoonline.util.Tools;
+import com.cangoonline.service.${packageName}.${objectNameLower}.${objectName}Manager;
 
 /** 
  * 说明：${TITLE}
- * 创建人：FH Q313596790
+ * 创建人：web
  * 创建时间：${nowDate?string("yyyy-MM-dd")}
  */
 @Controller
