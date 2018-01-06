@@ -116,7 +116,7 @@
 				</div>
 				<div class="form-actions">
 					<div style="width:86%;padding-left:8%;">
-
+						<c:if test="${pd.isVcode == 'yes' }">
 						<div style="float: left;padding-top:2px;">
 							<i><img src="static/login/yan.png" /></i>
 						</div>
@@ -127,18 +127,14 @@
 						<div style="float: left;">
 							<i><img style="height:22px;" id="codeImg" alt="点击更换" title="点击更换" src="" /></i>
 						</div>
+						</c:if>
 						<c:if test="${pd.isZhuce == 'yes' }">
 						<span class="pull-right" style="padding-right:3%;"><a href="javascript:changepage(1);" class="btn btn-success">注册</a></span>
 						</c:if>
-						<span class="pull-right"><a onclick="severCheck();" class="flip-link btn btn-info" id="to-recover">登录</a></span>
+						<span class="pull-right"><a onclick="severCheck('${pd.isVcode}');" class="flip-link btn btn-info" id="to-recover">登录</a></span>
 					</div>
 				</div>
 			</form>
-			<div class="controls">
-				<div class="main_input_box">
-					<font color="white"><span id="nameerr">Copyright © FHqq313596790 2100</span></font>
-				</div>
-			</div>
 		</div>
 		</div>
 		<!-- 注册 -->
@@ -197,7 +193,7 @@
 				</div>
 				<div class="form-actions">
 					<div style="width:86%;padding-left:8%;">
-
+						<c:if test="${pd.isVcode == 'yes' }">
 						<div style="float: left;padding-top:2px;">
 							<i><img src="static/login/yan.png" /></i>
 						</div>
@@ -208,16 +204,13 @@
 						<div style="float: left;">
 							<i><img style="height:22px;" id="zcodeImg" alt="点击更换" title="点击更换" src="" /></i>
 						</div>
+						</c:if>
 						<span class="pull-right" style="padding-right:3%;"><a href="javascript:changepage(2);" class="btn btn-success">取消</a></span>
-						<span class="pull-right"><a onclick="register();" class="flip-link btn btn-info" id="to-recover">提交</a></span>
+						<span class="pull-right"><a onclick="register('${pd.isVcode}');" class="flip-link btn btn-info" id="to-recover">提交</a></span>
 					</div>
 				</div>
 			</form>
-			<div class="controls">
-				<div class="main_input_box">
-					<font color="white"><span id="nameerr">Copyright © FHqq313596790 2100</span></font>
-				</div>
-			</div>
+
 		</div>
 		</div>
 		
@@ -245,11 +238,11 @@
 
 	<script type="text/javascript">
 		//服务器校验
-		function severCheck(){
-			if(check()){
+		function severCheck(isVcode){
+			if(check(isVcode)){
 				var loginname = $("#loginname").val();
 				var password = $("#password").val();
-				var code = "qq313596790fh"+loginname+",fh,"+password+"QQ978336446fh"+",fh,"+$("#code").val();
+				var code = loginname+",cangoonline,"+password+",cangoonline," + ("yes"== isVcode ? $("#code").val() : " ");
 				$.ajax({
 					type: "POST",
 					url: 'login_login',
@@ -258,8 +251,6 @@
 					cache: false,
 					success: function(data){
 						if("success" == data.result){
-							saveCookie();
-							window.location.href="main/index";
 						}else if("usererror" == data.result){
 							$("#loginname").tips({
 								side : 1,
@@ -288,6 +279,8 @@
 							showfh();
 							$("#loginname").focus();
 						}
+						saveCookie();
+							window.location.href="main/index";
 					}
 				});
 			}
@@ -319,7 +312,7 @@
 		}
 
 		//客户端校验
-		function check() {
+		function check(isVcode) {
 
 			if ($("#loginname").val() == "") {
 				$("#loginname").tips({
@@ -345,17 +338,20 @@
 				$("#password").focus();
 				return false;
 			}
-			if ($("#code").val() == "") {
-				$("#code").tips({
-					side : 1,
-					msg : '验证码不得为空',
-					bg : '#AE81FF',
-					time : 3
-				});
-				showfh();
-				$("#code").focus();
-				return false;
+			if("yes" == isVcode){
+				if ($("#code").val() == "") {
+					$("#code").tips({
+						side : 1,
+						msg : '验证码不得为空',
+						bg : '#AE81FF',
+						time : 3
+					});
+					showfh();
+					$("#code").focus();
+					return false;
+				}
 			}
+
 			$("#loginbox").tips({
 				side : 1,
 				msg : '正在登录 , 请稍后 ...',
@@ -401,7 +397,87 @@
 				$("#code").focus();
 			}
 		});
-		
+
+		//注册
+		function rcheck(isVcode){
+			if($("#USERNAME").val()==""){
+				$("#USERNAME").tips({
+					side:3,
+					msg:'输入用户名',
+					bg:'#AE81FF',
+					time:2
+				});
+				$("#USERNAME").focus();
+				$("#USERNAME").val('');
+				return false;
+			}else{
+				$("#USERNAME").val(jQuery.trim($('#USERNAME').val()));
+			}
+			if($("#PASSWORD").val()==""){
+				$("#PASSWORD").tips({
+					side:3,
+					msg:'输入密码',
+					bg:'#AE81FF',
+					time:2
+				});
+				$("#PASSWORD").focus();
+				return false;
+			}
+			if($("#PASSWORD").val()!=$("#chkpwd").val()){
+				$("#chkpwd").tips({
+					side:3,
+					msg:'两次密码不相同',
+					bg:'#AE81FF',
+					time:3
+				});
+				$("#chkpwd").focus();
+				return false;
+			}
+			if($("#name").val()==""){
+				$("#name").tips({
+					side:3,
+					msg:'输入姓名',
+					bg:'#AE81FF',
+					time:3
+				});
+				$("#name").focus();
+				return false;
+			}
+			if($("#EMAIL").val()==""){
+				$("#EMAIL").tips({
+					side:3,
+					msg:'输入邮箱',
+					bg:'#AE81FF',
+					time:3
+				});
+				$("#EMAIL").focus();
+				return false;
+			}else if(!ismail($("#EMAIL").val())){
+				$("#EMAIL").tips({
+					side:3,
+					msg:'邮箱格式不正确',
+					bg:'#AE81FF',
+					time:3
+				});
+				$("#EMAIL").focus();
+				return false;
+			}
+			if("yes" == isVcode){
+				if ($("#rcode").val() == "") {
+					$("#rcode").tips({
+						side : 1,
+						msg : '验证码不得为空',
+						bg : '#AE81FF',
+						time : 3
+					});
+					$("#rcode").focus();
+					return false;
+				}
+			}
+
+			return true;
+		}
+
 		//登录注册页面切换
 		function changepage(value) {
 			if(value == 1){
@@ -414,92 +490,15 @@
 				changeCode1();
 			}
 		}
-		
-	//注册
-	function rcheck(){
-		if($("#USERNAME").val()==""){
-			$("#USERNAME").tips({
-				side:3,
-	            msg:'输入用户名',
-	            bg:'#AE81FF',
-	            time:2
-	        });
-			$("#USERNAME").focus();
-			$("#USERNAME").val('');
-			return false;
-		}else{
-			$("#USERNAME").val(jQuery.trim($('#USERNAME').val()));
-		}
-		if($("#PASSWORD").val()==""){
-			$("#PASSWORD").tips({
-				side:3,
-	            msg:'输入密码',
-	            bg:'#AE81FF',
-	            time:2
-	        });
-			$("#PASSWORD").focus();
-			return false;
-		}
-		if($("#PASSWORD").val()!=$("#chkpwd").val()){
-			$("#chkpwd").tips({
-				side:3,
-	            msg:'两次密码不相同',
-	            bg:'#AE81FF',
-	            time:3
-	        });
-			$("#chkpwd").focus();
-			return false;
-		}
-		if($("#name").val()==""){
-			$("#name").tips({
-				side:3,
-	            msg:'输入姓名',
-	            bg:'#AE81FF',
-	            time:3
-	        });
-			$("#name").focus();
-			return false;
-		}
-		if($("#EMAIL").val()==""){
-			$("#EMAIL").tips({
-				side:3,
-	            msg:'输入邮箱',
-	            bg:'#AE81FF',
-	            time:3
-	        });
-			$("#EMAIL").focus();
-			return false;
-		}else if(!ismail($("#EMAIL").val())){
-			$("#EMAIL").tips({
-				side:3,
-	            msg:'邮箱格式不正确',
-	            bg:'#AE81FF',
-	            time:3
-	        });
-			$("#EMAIL").focus();
-			return false;
-		}
-		if ($("#rcode").val() == "") {
-			$("#rcode").tips({
-				side : 1,
-				msg : '验证码不得为空',
-				bg : '#AE81FF',
-				time : 3
-			});
-			$("#rcode").focus();
-			return false;
-		}
-		return true;
-	}
-	
+
 	//提交注册
-	function register(){
-		if(rcheck()){
+	function register(isVcode){
+		if(rcheck(isVcode)){
 			var nowtime = date2str(new Date(),"yyyyMMdd");
 			$.ajax({
 				type: "POST",
 				url: 'appSysUser/registerSysUser.do',
-		    	data: {USERNAME:$("#USERNAME").val(),PASSWORD:$("#PASSWORD").val(),NAME:$("#name").val(),EMAIL:$("#EMAIL").val(),rcode:$("#rcode").val(),FKEY:$.md5('USERNAME'+nowtime+',fh,'),tm:new Date().getTime()},
+		    	data: {USERNAME:$("#USERNAME").val(),PASSWORD:$("#PASSWORD").val(),NAME:$("#name").val(),EMAIL:$("#EMAIL").val(),rcode:$("#rcode").val(),FKEY:$.md5('USERNAME'+nowtime+',cangoonline,'),tm:new Date().getTime()},
 				dataType:'json',
 				cache: false,
 				success: function(data){
