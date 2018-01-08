@@ -118,8 +118,8 @@ CREATE TABLE `oa_datajur` (
 -- Records of oa_datajur
 -- ----------------------------
 BEGIN;
-INSERT INTO `oa_datajur` VALUES ('9fd17463ffd7487ab90e683c76026655', '(\'d41af567914a409893d011aa53eda797\',\'3e7227e11dc14b4d9e863dd1a1fcedf6\',\'0956d8c279274fca92f4091f2a69a9ad\',\'fh\')', '9fd17463ffd7487ab90e683c76026655', 'a6c6695217ba4a4dbfe9f7e9d2c06730');
-INSERT INTO `oa_datajur` VALUES ('c9f05f925dfc485b9e352916612ab669', '(\'a0982dea52554225ab682cd4b421de47\',\'fh\')', 'c9f05f925dfc485b9e352916612ab669', '8f8b045470f342fdbc4c312ab881d62b');
+INSERT INTO `oa_datajur` VALUES ('9fd17463ffd7487ab90e683c76026655', '(''d41af567914a409893d011aa53eda797'',''3e7227e11dc14b4d9e863dd1a1fcedf6'',''0956d8c279274fca92f4091f2a69a9ad'',''fh'')', '9fd17463ffd7487ab90e683c76026655', 'a6c6695217ba4a4dbfe9f7e9d2c06730');
+INSERT INTO `oa_datajur` VALUES ('c9f05f925dfc485b9e352916612ab669', '(''a0982dea52554225ab682cd4b421de47'',''fh'')', 'c9f05f925dfc485b9e352916612ab669', '8f8b045470f342fdbc4c312ab881d62b');
 COMMIT;
 
 -- ----------------------------
@@ -280,7 +280,7 @@ CREATE TABLE `sys_codeeditor` (
 -- Records of sys_codeeditor
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_codeeditor` VALUES ('a449439b29bc40c4b84fa5cc1e31537c', 'createCode', 'mysql_SQL_Template', '2017-06-12 17:55:05', 'SET FOREIGN_KEY_CHECKS=0;\n\n-- ----------------------------\n-- Table structure for `${tabletop}${objectNameUpper}`\n-- ----------------------------\nDROP TABLE IF EXISTS `${tabletop}${objectNameUpper}`;\nCREATE TABLE `${tabletop}${objectNameUpper}` (\n 		`${objectNameUpper}_ID` varchar(100) NOT NULL,\n	<#list fieldList as var>\n		<#if var[1] == \'Integer\'>\n		`${var[0]}` int(${var[5]}) NOT NULL COMMENT \'${var[2]}\',\n		<#elseif var[1] == \'Double\'>\n		`${var[0]}` double(${var[5]},${var[6]}) DEFAULT NULL COMMENT \'${var[2]}\',\n		<#else>\n		`${var[0]}` varchar(${var[5]}) DEFAULT NULL COMMENT \'${var[2]}\',\n		</#if>\n	</#list>\n  		PRIMARY KEY (`${objectNameUpper}_ID`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8;\n');
+INSERT INTO `sys_codeeditor` VALUES ('a449439b29bc40c4b84fa5cc1e31537c', 'createCode', 'mysql_SQL_Template', '2017-06-12 17:55:05', 'SET FOREIGN_KEY_CHECKS=0;'n'n-- ----------------------------'n-- Table structure for `${tabletop}${objectNameUpper}`'n-- ----------------------------'nDROP TABLE IF EXISTS `${tabletop}${objectNameUpper}`;'nCREATE TABLE `${tabletop}${objectNameUpper}` ('n 		`${objectNameUpper}_ID` varchar(100) NOT NULL,'n	<#list fieldList as var>'n		<#if var[1] == ''Integer''>'n		`${var[0]}` int(${var[5]}) NOT NULL COMMENT ''${var[2]}'','n		<#elseif var[1] == ''Double''>'n		`${var[0]}` double(${var[5]},${var[6]}) DEFAULT NULL COMMENT ''${var[2]}'','n		<#else>'n		`${var[0]}` varchar(${var[5]}) DEFAULT NULL COMMENT ''${var[2]}'','n		</#if>'n	</#list>'n  		PRIMARY KEY (`${objectNameUpper}_ID`)'n) ENGINE=InnoDB DEFAULT CHARSET=utf8;'n');
 COMMIT;
 
 -- ----------------------------
@@ -361,7 +361,7 @@ INSERT INTO `sys_dictionaries` VALUES ('076995f7d0034b32a94e0130d406d137', '湖�
 INSERT INTO `sys_dictionaries` VALUES ('076a163af6814f93954a543bd3b2fa4d', '广州', 'guangzhou', '0030704', 4, '0dd1f40bcb9d46aeba015dc19645a5b9', '广州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('085ebd2776384eff842de8b61b781a7e', '潼南区', 'tongnanqu', '0033122', 22, '1c85fbd06cf840d093f3640aca1b6b2d', '潼南区', '');
 INSERT INTO `sys_dictionaries` VALUES ('0953fe05e34642169c4cf24492b163b9', '湘西', 'xiangxi', '0031514', 14, 'c59f91630bef4289b71fcb2a48994582', '湘西市', '');
-INSERT INTO `sys_dictionaries` VALUES ('098bf5e3603e44889a2c4bb25e350400', '阿坝', 'a\'ba', '0032501', 1, 'd3538add7125404aba4b0007ef9fde50', '阿坝市', '');
+INSERT INTO `sys_dictionaries` VALUES ('098bf5e3603e44889a2c4bb25e350400', '阿坝', 'a''ba', '0032501', 1, 'd3538add7125404aba4b0007ef9fde50', '阿坝市', '');
 INSERT INTO `sys_dictionaries` VALUES ('0a2561ec256b4f46b4fa76c621256595', '鹤岗', 'hegang', '0031304', 4, 'b2d4133b5dbf4599ada940620d2ab250', '鹤岗市', '');
 INSERT INTO `sys_dictionaries` VALUES ('0a65f2ef68d54b7c8772e1d916684c4a', '岳阳', 'yueyang', '0031506', 6, 'c59f91630bef4289b71fcb2a48994582', '岳阳市', '');
 INSERT INTO `sys_dictionaries` VALUES ('0a754e878c304b99bf5d34a82ca3705c', '吉林', 'jilin', '0031604', 4, '857be71b0d6d4a40a2c83476824206d1', '吉林市', '');
@@ -369,7 +369,7 @@ INSERT INTO `sys_dictionaries` VALUES ('0b08e52f2b264d0da66d37e718e32aba', '常�
 INSERT INTO `sys_dictionaries` VALUES ('0c908137935946ac885cb56e55ff4f5d', '北碚区', 'beibeiqu', '0033109', 9, '1c85fbd06cf840d093f3640aca1b6b2d', '北碚区', '');
 INSERT INTO `sys_dictionaries` VALUES ('0dba32de24014bcab807fd0fc51953aa', '北海', 'beihai', '0030802', 2, 'c5f3d426c582410281f89f1451e1d854', '北海市', '');
 INSERT INTO `sys_dictionaries` VALUES ('0dd1f40bcb9d46aeba015dc19645a5b9', '广东', 'guangdong', '00307', 7, '1', '广东省', '');
-INSERT INTO `sys_dictionaries` VALUES ('0e18ab3edf5e43ee8737c156b0b50692', '吉安', 'ji\'an', '0031803', 3, 'cb3008cbd6ae4b5f8cebd2254ccb8603', '吉安市', '');
+INSERT INTO `sys_dictionaries` VALUES ('0e18ab3edf5e43ee8737c156b0b50692', '吉安', 'ji''an', '0031803', 3, 'cb3008cbd6ae4b5f8cebd2254ccb8603', '吉安市', '');
 INSERT INTO `sys_dictionaries` VALUES ('0eb279a28a0d43c7a075d58c6cfc3e02', '长寿区', 'changshouqu', '0033115', 15, '1c85fbd06cf840d093f3640aca1b6b2d', '长寿区', '');
 INSERT INTO `sys_dictionaries` VALUES ('0efda23d751b42cb9472ca4f80cdf6c5', '德州', 'dezhou', '0030303', 3, '10f46a521ea0471f8d71ee75ac3b5f3a', '德州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('0f975f2f51e245439b7d759f822a4a43', '嘉定区', 'jiadingqu', '0030210', 10, 'f1ea30ddef1340609c35c88fb2919bee', '嘉定区', '');
@@ -382,7 +382,7 @@ INSERT INTO `sys_dictionaries` VALUES ('11ab8df614c14451bb08a91fbe05162e', '防�
 INSERT INTO `sys_dictionaries` VALUES ('12a62a3e5bed44bba0412b7e6b733c93', '北京', 'beijing', '00301', 1, '1', '北京', '');
 INSERT INTO `sys_dictionaries` VALUES ('13b4d440cdd043378c2bbd0b797bc7b7', '黄石', 'huangshi', '0031404', 4, '312b80775e104ba08c8244a042a658df', '黄石市', '');
 INSERT INTO `sys_dictionaries` VALUES ('13e9e380abed4def837bea1671b92633', '大兴安岭', 'daxinganling', '0031302', 2, 'b2d4133b5dbf4599ada940620d2ab250', '大兴安岭市', '');
-INSERT INTO `sys_dictionaries` VALUES ('14452abafbef4cadbb05a5a74a61eb6f', '广安', 'guang\'an', '0032507', 7, 'd3538add7125404aba4b0007ef9fde50', '广安市', '');
+INSERT INTO `sys_dictionaries` VALUES ('14452abafbef4cadbb05a5a74a61eb6f', '广安', 'guang''an', '0032507', 7, 'd3538add7125404aba4b0007ef9fde50', '广安市', '');
 INSERT INTO `sys_dictionaries` VALUES ('158588bf48464dcca0e656968b8e09c0', '密云区', 'miyunqu', '0030115', 15, '12a62a3e5bed44bba0412b7e6b733c93', '密云区', '');
 INSERT INTO `sys_dictionaries` VALUES ('159d49075827476490aee58956fb159c', '潜江', 'qianjiang', '0031406', 6, '312b80775e104ba08c8244a042a658df', '潜江市', '');
 INSERT INTO `sys_dictionaries` VALUES ('15da226f465b4dac95c8333fd3d81747', '淮安', 'huaian', '0031702', 2, '577405ff648240959b3765c950598ab0', '淮安市', '');
@@ -392,7 +392,7 @@ INSERT INTO `sys_dictionaries` VALUES ('16a1eb63489e4d28827fc16a90e2ed61', '贵�
 INSERT INTO `sys_dictionaries` VALUES ('1895a514cda74329817bce6a5fe918f4', '济源', 'jiyuan', '0031203', 3, '7336944efb4b40fcae9118fc9a970d2d', '济源市', '');
 INSERT INTO `sys_dictionaries` VALUES ('1929f99821f2484fa33991233c1555e9', '大理', 'dali', '0032904', 4, '510607a1836e4079b3103e14ec5864ed', '大理', '');
 INSERT INTO `sys_dictionaries` VALUES ('192a36eb3d234a909e339c06b9cf723a', '许昌', 'xuchang', '0031215', 15, '7336944efb4b40fcae9118fc9a970d2d', '许昌市', '');
-INSERT INTO `sys_dictionaries` VALUES ('19cf8222eac9457280ebb40f14052590', '南岸区', 'nan\'anqu', '0033108', 8, '1c85fbd06cf840d093f3640aca1b6b2d', '南岸区', '');
+INSERT INTO `sys_dictionaries` VALUES ('19cf8222eac9457280ebb40f14052590', '南岸区', 'nan''anqu', '0033108', 8, '1c85fbd06cf840d093f3640aca1b6b2d', '南岸区', '');
 INSERT INTO `sys_dictionaries` VALUES ('1a99e7e302ce4f24b4b5d5d4b20a75fe', '清远', 'qingyuan', '0030711', 11, '0dd1f40bcb9d46aeba015dc19645a5b9', '清远市', '');
 INSERT INTO `sys_dictionaries` VALUES ('1ac809034f3d471592a5c74e19c7f1bc', '烟台', 'yantai', '0030315', 15, '10f46a521ea0471f8d71ee75ac3b5f3a', '烟台市', '');
 INSERT INTO `sys_dictionaries` VALUES ('1b65dd2a2057489c9598c789b4114d24', '孝感', 'xiaogan', '0031415', 15, '312b80775e104ba08c8244a042a658df', '孝感市', '');
@@ -428,7 +428,7 @@ INSERT INTO `sys_dictionaries` VALUES ('26b093ae7635474d8da8162efe7e4035', '合�
 INSERT INTO `sys_dictionaries` VALUES ('26d4e79797d34b11b58eb12e5c0c55ae', '抚州', 'fuzhou', '0031801', 1, 'cb3008cbd6ae4b5f8cebd2254ccb8603', '抚州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('273f2c545056473abaf320327073b48b', '无锡', 'wuxi', '0031709', 9, '577405ff648240959b3765c950598ab0', '无锡市', '');
 INSERT INTO `sys_dictionaries` VALUES ('27927fbc83154894b096221da15b326a', '保定', 'baoding', '0031101', 1, '75362368f22f4d60a810c2a45cced487', '保定市', '');
-INSERT INTO `sys_dictionaries` VALUES ('287baf1c903444359971b0ce8d58dce2', '普洱', 'pu\'er', '0032912', 12, '510607a1836e4079b3103e14ec5864ed', '普洱', '');
+INSERT INTO `sys_dictionaries` VALUES ('287baf1c903444359971b0ce8d58dce2', '普洱', 'pu''er', '0032912', 12, '510607a1836e4079b3103e14ec5864ed', '普洱', '');
 INSERT INTO `sys_dictionaries` VALUES ('29a4dbca082b49078af67caf5fd28f4f', '漳州', 'zhangzhou', '0030509', 9, 'd4066f6f425a4894a77f49f539f2a34f', '漳州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('2a4c3b9f024743d19907b36ab4a43499', '宣城', 'xuancheng', '0030417', 17, '249999f296d14f95b8138a30bbb2c374', '宣城市', '');
 INSERT INTO `sys_dictionaries` VALUES ('2a4f0cb0748645bab53b94b62412df04', '黔西南', 'qianxinan', '0030907', 7, '592f6fcf45a74524aa8ea853fc9761d5', '黔西南市', '');
@@ -440,14 +440,14 @@ INSERT INTO `sys_dictionaries` VALUES ('2c254799d3454f2cbc338ef5712548e9', '天�
 INSERT INTO `sys_dictionaries` VALUES ('2d0e4687904b48738ac6bd6a42e7f32d', '忻州', 'xinzhou', '0032309', 9, '023473e9e6204583a110531036357514', '忻州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('2d0ff92556b544c19dbfc8b8b055e19a', '常州', 'changzhou', '0031701', 1, '577405ff648240959b3765c950598ab0', '常州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('2e3c279cf0a44115869049e4a6d9ed08', '西宁', 'xining', '0032207', 7, '5a80e3435c0e4dc09bafceeadb38e5f0', '西宁', '');
-INSERT INTO `sys_dictionaries` VALUES ('2f097a8914de4b01a04bf61852435672', '阿勒泰', 'a\'letai', '0032802', 2, '2fabed91c6d94e698ed449165cd250ca', '阿勒泰', '');
+INSERT INTO `sys_dictionaries` VALUES ('2f097a8914de4b01a04bf61852435672', '阿勒泰', 'a''letai', '0032802', 2, '2fabed91c6d94e698ed449165cd250ca', '阿勒泰', '');
 INSERT INTO `sys_dictionaries` VALUES ('2f5e433682f24e20b600532062ff0bcb', '白山', 'baishan', '0031602', 2, '857be71b0d6d4a40a2c83476824206d1', '白山市', '');
 INSERT INTO `sys_dictionaries` VALUES ('2f7f68eb9be845be90e74a0763de2c7f', '平谷区', 'pingguqu', '0030114', 14, '12a62a3e5bed44bba0412b7e6b733c93', '平谷区', '');
 INSERT INTO `sys_dictionaries` VALUES ('2f8e7a55eaab4649b9abe43ade744e58', '大庆', 'daqing', '0031301', 1, 'b2d4133b5dbf4599ada940620d2ab250', '大庆市', '');
 INSERT INTO `sys_dictionaries` VALUES ('2fabed91c6d94e698ed449165cd250ca', '新疆', 'xinjiang', '00328', 28, '1', '新疆', '');
 INSERT INTO `sys_dictionaries` VALUES ('30d424f63bf44e8391683f371ed3552f', '秦皇岛', 'qinhuangdao', '0031107', 7, '75362368f22f4d60a810c2a45cced487', '秦皇岛市', '');
 INSERT INTO `sys_dictionaries` VALUES ('312b80775e104ba08c8244a042a658df', '湖北', 'hubei', '00314', 14, '1', '湖北省', '');
-INSERT INTO `sys_dictionaries` VALUES ('3186f859efa246f793401c475d3d0090', '阿里', 'a\'li', '0032701', 1, '3e846b08dbbe495e93bc93f8f202de79', '阿里', '');
+INSERT INTO `sys_dictionaries` VALUES ('3186f859efa246f793401c475d3d0090', '阿里', 'a''li', '0032701', 1, '3e846b08dbbe495e93bc93f8f202de79', '阿里', '');
 INSERT INTO `sys_dictionaries` VALUES ('325e45e49c1849efb7fea2296f686210', '赣州', 'ganzhou', '0031802', 2, 'cb3008cbd6ae4b5f8cebd2254ccb8603', '赣州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('3283f1a77180495f9a0b192d0f9cdd35', '甘肃', 'gansu', '00306', 6, '1', '甘肃省', '');
 INSERT INTO `sys_dictionaries` VALUES ('329838f633f340779483910f33387ccd', '通州区', 'tongzhouqu', '0030109', 9, '12a62a3e5bed44bba0412b7e6b733c93', '通州区', '');
@@ -460,7 +460,7 @@ INSERT INTO `sys_dictionaries` VALUES ('38bc876c1cab4434af9d14be194463c8', '南�
 INSERT INTO `sys_dictionaries` VALUES ('39595ea4b765445dae9c26ae870b3a0f', '克州', 'kezhou', '0032809', 9, '2fabed91c6d94e698ed449165cd250ca', '克州', '');
 INSERT INTO `sys_dictionaries` VALUES ('3a3b4ea7445a4aec80083e5957028990', '汕头', 'shantou', '0030712', 12, '0dd1f40bcb9d46aeba015dc19645a5b9', '汕头市', '');
 INSERT INTO `sys_dictionaries` VALUES ('3a5d1b6e800541c683724672cae3e0f6', '泰安', 'taian', '0030312', 12, '10f46a521ea0471f8d71ee75ac3b5f3a', '泰安市', '');
-INSERT INTO `sys_dictionaries` VALUES ('3ad7c52e9a7044a1a9ab00f29f8cef7c', '阿克苏', 'a\'kesu', '0032801', 1, '2fabed91c6d94e698ed449165cd250ca', '阿克苏', '');
+INSERT INTO `sys_dictionaries` VALUES ('3ad7c52e9a7044a1a9ab00f29f8cef7c', '阿克苏', 'a''kesu', '0032801', 1, '2fabed91c6d94e698ed449165cd250ca', '阿克苏', '');
 INSERT INTO `sys_dictionaries` VALUES ('3ae7c64c40c147eeb3898883e20a7fe0', '山南', 'shannan', '0032707', 7, '3e846b08dbbe495e93bc93f8f202de79', '山南', '');
 INSERT INTO `sys_dictionaries` VALUES ('3d2a8f11e6d345b5af2f8e5d8bb6bb7a', '鹰潭', 'yingtan', '0031811', 11, 'cb3008cbd6ae4b5f8cebd2254ccb8603', '鹰潭市', '');
 INSERT INTO `sys_dictionaries` VALUES ('3dbed4444dfc4884ab57d769ceac9507', '松江区', 'songjiangqu', '0030213', 13, 'f1ea30ddef1340609c35c88fb2919bee', '松江区', '');
@@ -472,7 +472,7 @@ INSERT INTO `sys_dictionaries` VALUES ('3fb6c72b11124211a22d9f8f40715737', '辽�
 INSERT INTO `sys_dictionaries` VALUES ('3fffacbb502d4647bd358ff00412f536', '长治', 'changzhi', '0032301', 1, '023473e9e6204583a110531036357514', '长治市', '');
 INSERT INTO `sys_dictionaries` VALUES ('407fa7f152f4461582cfd6904b2c454a', '晋城', 'jincheng', '0032303', 3, '023473e9e6204583a110531036357514', '晋城市', '');
 INSERT INTO `sys_dictionaries` VALUES ('415fe5fbf3054a3ea2ebdbe24ce4c49f', '永川区', 'yongchuanqu', '0033118', 18, '1c85fbd06cf840d093f3640aca1b6b2d', '永川区', '');
-INSERT INTO `sys_dictionaries` VALUES ('417d25314a9e43c6b7b725db160db360', '延安', 'yan\'an', '0032409', 9, '534850c72ceb4a57b7dc269da63c330a', '延安市', '');
+INSERT INTO `sys_dictionaries` VALUES ('417d25314a9e43c6b7b725db160db360', '延安', 'yan''an', '0032409', 9, '534850c72ceb4a57b7dc269da63c330a', '延安市', '');
 INSERT INTO `sys_dictionaries` VALUES ('4266f08d4bc24321bba7ea3a83a8ba95', '永州', 'yongzhou', '0031511', 11, 'c59f91630bef4289b71fcb2a48994582', '永州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('429dc62e0f6641b8b2ddced272d5d087', '遵义', 'zunyi', '0030909', 9, '592f6fcf45a74524aa8ea853fc9761d5', '遵义市', '');
 INSERT INTO `sys_dictionaries` VALUES ('432c0a1be10143beba6de15ad8811b64', '安顺', 'anshun', '0030901', 1, '592f6fcf45a74524aa8ea853fc9761d5', '安顺市', '');
@@ -525,7 +525,7 @@ INSERT INTO `sys_dictionaries` VALUES ('65629a05de764a19b66b752726f5cdbd', '海�
 INSERT INTO `sys_dictionaries` VALUES ('6567a081f5d142779e17edbda3da9a04', '宁波', 'ningbo', '0033006', 6, '6d846178376549ed878d11d109819f25', '宁波市', '');
 INSERT INTO `sys_dictionaries` VALUES ('6624ad3b318149f3a8ee5beef1b8b38f', '肇庆', 'zhaoqing', '0030719', 19, '0dd1f40bcb9d46aeba015dc19645a5b9', '肇庆市', '');
 INSERT INTO `sys_dictionaries` VALUES ('66d9ddeebbea43f4b52cd33964c4c429', '语文', 'yuwen', '001010101', 1, '1b79421601744059a4ef6b0ca9be32f9', '语文', '');
-INSERT INTO `sys_dictionaries` VALUES ('674ec37e9641450dadc9798df10c58bc', '静安区', 'jing\'anqu', '0030204', 4, 'f1ea30ddef1340609c35c88fb2919bee', '静安区', '');
+INSERT INTO `sys_dictionaries` VALUES ('674ec37e9641450dadc9798df10c58bc', '静安区', 'jing''anqu', '0030204', 4, 'f1ea30ddef1340609c35c88fb2919bee', '静安区', '');
 INSERT INTO `sys_dictionaries` VALUES ('67cba9a4ca4c4c38ac3ba2c21dd191e6', '南昌', 'nanchang', '0031806', 6, 'cb3008cbd6ae4b5f8cebd2254ccb8603', '南昌市', '');
 INSERT INTO `sys_dictionaries` VALUES ('68a8f7a8337141d3a092fadfd2457970', '鸡西', 'jixi', '0031306', 6, 'b2d4133b5dbf4599ada940620d2ab250', '鸡西市', '');
 INSERT INTO `sys_dictionaries` VALUES ('6932b6b7b5124bef8385fb8e5b5c2568', '通化', 'tonghua', '0031608', 8, '857be71b0d6d4a40a2c83476824206d1', '通化市', '');
@@ -693,7 +693,7 @@ INSERT INTO `sys_dictionaries` VALUES ('c7852784049a473c917863c5bc84dd95', '甘�
 INSERT INTO `sys_dictionaries` VALUES ('c7a5ba87961742f3b242ee4d30a55921', '营口', 'yingkou', '0031914', 14, 'b3366626c66c4b61881f09e1722e8495', '营口市', '');
 INSERT INTO `sys_dictionaries` VALUES ('c8342c1dcf584cbf92f20d90a62a34bf', '平顶山', 'pingdingshan', '0031209', 9, '7336944efb4b40fcae9118fc9a970d2d', '平顶山市', '');
 INSERT INTO `sys_dictionaries` VALUES ('c8d4119e57f84e71815769f03935e471', '黔东南', 'qiandongnan', '0030905', 5, '592f6fcf45a74524aa8ea853fc9761d5', '黔东南市', '');
-INSERT INTO `sys_dictionaries` VALUES ('c928e9192e2f4f5ca06c6599371ff83c', '六安', 'lu\'an', '0030412', 12, '249999f296d14f95b8138a30bbb2c374', '六安市', '');
+INSERT INTO `sys_dictionaries` VALUES ('c928e9192e2f4f5ca06c6599371ff83c', '六安', 'lu''an', '0030412', 12, '249999f296d14f95b8138a30bbb2c374', '六安市', '');
 INSERT INTO `sys_dictionaries` VALUES ('c9811aef284b4ae8b8bf7698e90d8b3b', '泉州', 'quanzhou', '0030506', 6, 'd4066f6f425a4894a77f49f539f2a34f', '泉州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('c9df1fd73d0642eea8b050738f6ed9fa', '聊城', 'liaocheng', '0030308', 8, '10f46a521ea0471f8d71ee75ac3b5f3a', '聊城市', '');
 INSERT INTO `sys_dictionaries` VALUES ('ca2e3717bb734c4b9142f29e36a31989', '株洲', 'zhuzhou', '0031502', 2, 'c59f91630bef4289b71fcb2a48994582', '株洲市', '');
@@ -732,8 +732,8 @@ INSERT INTO `sys_dictionaries` VALUES ('d90a14bfbfe44a3e8d60bda8f8f362a6', '铜�
 INSERT INTO `sys_dictionaries` VALUES ('da583c36f6754d498176755c93db8d7c', '遂宁', 'suining', '0032516', 16, 'd3538add7125404aba4b0007ef9fde50', '遂宁市', '');
 INSERT INTO `sys_dictionaries` VALUES ('db3b9c7116bc49e3a65fa641dd82155d', '红河', 'honghe', '0032907', 7, '510607a1836e4079b3103e14ec5864ed', '红河', '');
 INSERT INTO `sys_dictionaries` VALUES ('db6336fcf27f4c00b37513ff0e368ae6', '长宁区', 'changningqu', '0030203', 3, 'f1ea30ddef1340609c35c88fb2919bee', '长宁区', '');
-INSERT INTO `sys_dictionaries` VALUES ('db77fd88654c4014a71d541171d2795b', '西安', 'xi\'an', '0032407', 7, '534850c72ceb4a57b7dc269da63c330a', '西安市', '');
-INSERT INTO `sys_dictionaries` VALUES ('dc022922169446549dfac0de221d2a4d', '雅安', 'ya\'an', '0032517', 17, 'd3538add7125404aba4b0007ef9fde50', '雅安市', '');
+INSERT INTO `sys_dictionaries` VALUES ('db77fd88654c4014a71d541171d2795b', '西安', 'xi''an', '0032407', 7, '534850c72ceb4a57b7dc269da63c330a', '西安市', '');
+INSERT INTO `sys_dictionaries` VALUES ('dc022922169446549dfac0de221d2a4d', '雅安', 'ya''an', '0032517', 17, 'd3538add7125404aba4b0007ef9fde50', '雅安市', '');
 INSERT INTO `sys_dictionaries` VALUES ('dc9b2098188f4b5c93aec5c9bbfb895d', '吕梁', 'lvliang', '0032306', 6, '023473e9e6204583a110531036357514', '吕梁市', '');
 INSERT INTO `sys_dictionaries` VALUES ('dcbcde16e75643f9b8dd4b6293c87dd5', '滨州', 'binzhou', '0030302', 2, '10f46a521ea0471f8d71ee75ac3b5f3a', '滨州市', '');
 INSERT INTO `sys_dictionaries` VALUES ('dcd0ca1cde8f420dbfecbac4cf1506ee', '巴州', 'bazhou', '0032803', 3, '2fabed91c6d94e698ed449165cd250ca', '巴州', '');
