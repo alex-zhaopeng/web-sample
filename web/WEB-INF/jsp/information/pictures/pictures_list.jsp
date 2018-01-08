@@ -99,14 +99,12 @@
 										</td>
 										<td class='center' style="width: 30px;">${vs.index+1}</td>
 										<td class="center">
-										<a href="<%=basePath%>pictures/image/${var.PICTURES_ID}" title="${var.TITLE}" class="bwGal">
+										<a href="<%=basePath%>pictures/image/${var.PICTURES_ID}.jpg" title="${var.TITLE}" class="bwGal" >
 											<img src="<%=basePath%>pictures/image/${var.PICTURES_ID}" alt="${var.TITLE}" width="100">
 										</a>
-<%--
-										<a href="<%=basePath%>uploadFiles/uploadImgs/${var.PATH}" title="${var.TITLE}" class="bwGal">
+										<%--<a href="<%=basePath%>uploadFiles/uploadImgs/${var.PATH}" title="${var.TITLE}" class="bwGal" download="">
 											<img src="<%=basePath%>uploadFiles/uploadImgs/${var.PATH}" alt="${var.TITLE}" width="100">
-										</a>
---%>
+										</a>--%>
 										</td>
 										<td class="center">${var.TITLE}</td>
 										<td class="center">${var.PICTURES_ID}</td>
