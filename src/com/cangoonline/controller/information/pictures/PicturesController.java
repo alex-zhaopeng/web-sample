@@ -1,41 +1,31 @@
 package com.cangoonline.controller.information.pictures;
 
-import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.cangoonline.controller.base.BaseController;
+import com.cangoonline.entity.Page;
+import com.cangoonline.service.information.pictures.PicturesManager;
+import com.cangoonline.util.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cangoonline.controller.base.BaseController;
-import com.cangoonline.entity.Page;
-import com.cangoonline.util.AppUtil;
-import com.cangoonline.util.DateUtil;
-import com.cangoonline.util.DelAllFile;
-import com.cangoonline.util.FileUpload;
-import com.cangoonline.util.GetWeb;
-import com.cangoonline.util.Jurisdiction;
-import com.cangoonline.util.Const;
-import com.cangoonline.util.PageData;
-import com.cangoonline.util.PathUtil;
-import com.cangoonline.util.Tools;
-import com.cangoonline.util.Watermark;
-import com.cangoonline.service.information.pictures.PicturesManager;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /** 
  * 类名称：图片管理
@@ -49,7 +39,12 @@ public class PicturesController extends BaseController {
 	String menuUrl = "pictures/list.do"; //菜单地址(权限用)
 	@Resource(name="picturesService")
 	private PicturesManager picturesService;
-	
+
+	@Value("${baseImageUrl}")
+	private String baseImageUrl;
+	@Value("${baseUploadUrl}")
+	private String baseUploadUrl;
+
 	/**列表
 	 * @param page
 	 * @return
@@ -109,16 +104,23 @@ public class PicturesController extends BaseController {
 		if(!Jurisdiction.buttonJurisdiction(menuUrl, "add")){return null;} //校验权限
 		logBefore(logger, Jurisdiction.getUsername()+"新增图片");
 		Map<String,String> map = new HashMap<String,String>();
-		String  ffile = DateUtil.getDays(), fileName = "";
+		String  ffile = DateUtil.getDays(), fileName = "", filePath="";
 		PageData pd = new PageData();
 		if(Jurisdiction.buttonJurisdiction(menuUrl, "add")){
 			if (null != file && !file.isEmpty()) {
-				String filePath = PathUtil.getClasspath() + Const.FILEPATHIMG + ffile;		//文件上传路径
+				filePath = PathUtil.getClasspath() + Const.FILEPATHIMG + ffile;		//文件上传路径
 				fileName = FileUpload.fileUp(file, filePath, this.get32UUID());				//执行上传
 			}else{
 				System.out.println("上传失败");
 			}
-			pd.put("PICTURES_ID", this.get32UUID());			//主键
+
+			// TODO 上传图片到文件服务器
+			String result = JavaFileToFormUpload.send(baseUploadUrl, filePath +"/"+ fileName);
+			JSONObject jsonObject = JSON.parseObject(result);
+			String uuid = jsonObject.getString("body");
+
+			//pd.put("PICTURES_ID", this.get32UUID());			//主键
+			pd.put("PICTURES_ID", uuid);			//主键
 			pd.put("TITLE", "图片");								//标题
 			pd.put("NAME", fileName);							//文件名
 			pd.put("PATH", ffile + "/" + fileName);				//路径
@@ -130,6 +132,46 @@ public class PicturesController extends BaseController {
 		}
 		map.put("result", "ok");
 		return AppUtil.returnObject(pd, map);
+	}
+
+	@RequestMapping(value="/image/{id}", method = RequestMethod.GET, produces = "image/jpeg")
+	public void downloadImage(@PathVariable String id, HttpServletResponse response) {
+
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		try {
+			URL realUrl = new URL(baseImageUrl+id);
+			// 打开和URL之间的连接
+			URLConnection connection = realUrl.openConnection();
+			// 设置通用的请求属性
+			connection.setRequestProperty("accept", "*/*");
+			connection.setRequestProperty("connection", "Keep-Alive");
+			connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+			// 建立实际的连接
+			connection.connect();
+			inputStream = connection.getInputStream();
+			outputStream = response.getOutputStream();
+			byte[] buf = new byte[1024];
+			int bytes = 0;
+			while ((bytes = inputStream.read(buf)) != -1) {
+				outputStream.write(buf, 0, bytes);
+				outputStream.flush();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			// TODO 当文件服务器中没有文件时，默认取本地缓存文件
+
+		}finally {
+			try {
+				if(inputStream!=null)
+					inputStream.close();
+				if(outputStream!=null)
+					outputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 	
 	/**删除
@@ -188,6 +230,14 @@ public class PicturesController extends BaseController {
 			if (null != file && !file.isEmpty()) {
 				String filePath = PathUtil.getClasspath() + Const.FILEPATHIMG + ffile;	//文件上传路径
 				fileName = FileUpload.fileUp(file, filePath, this.get32UUID());			//执行上传
+
+				// TODO 上传图片到文件服务器
+				String baseUrl = "http://192.168.11.11:8889/insurance-server/doc/image/upload";
+				String result = JavaFileToFormUpload.send(baseUrl, filePath +"/"+ fileName);
+				JSONObject jsonObject = JSON.parseObject(result);
+				String uuid = jsonObject.getString("body");
+
+				pd.put("NEW_PICTURES_ID",uuid);
 				pd.put("PATH", ffile + "/" + fileName);									//路径
 				pd.put("NAME", fileName);
 				Watermark.setWatemark(PathUtil.getClasspath() + Const.FILEPATHIMG + ffile + "/" + fileName);//加水印
@@ -343,5 +393,21 @@ public class PicturesController extends BaseController {
 	public void initBinder(WebDataBinder binder){
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,true));
+	}
+
+	public String getBaseImageUrl() {
+		return baseImageUrl;
+	}
+
+	public void setBaseImageUrl(String baseImageUrl) {
+		this.baseImageUrl = baseImageUrl;
+	}
+
+	public String getBaseUploadUrl() {
+		return baseUploadUrl;
+	}
+
+	public void setBaseUploadUrl(String baseUploadUrl) {
+		this.baseUploadUrl = baseUploadUrl;
 	}
 }

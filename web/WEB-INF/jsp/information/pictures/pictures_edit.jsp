@@ -39,7 +39,8 @@
 										<input type="file" id="tp" name="tp" onchange="fileType(this)"/>
 										</c:if>
 										<c:if test="${pd != null && pd.PATH != '' && pd.PATH != null }">
-											<a href="<%=basePath%>uploadFiles/uploadImgs/${pd.PATH}" target="_blank"><img src="<%=basePath%>uploadFiles/uploadImgs/${pd.PATH}" width="210"/></a>
+											<%--<a href="<%=basePath%>uploadFiles/uploadImgs/${pd.PATH}" target="_blank"><img src="<%=basePath%>uploadFiles/uploadImgs/${pd.PATH}" width="210"/></a>--%>
+											<a href="<%=basePath%>pictures/image/${pd.PICTURES_ID}" target="_blank"><img src="<%=basePath%>pictures/image/${pd.PICTURES_ID}" width="210"/></a>
 											<input type="button" class="btn btn-mini btn-danger" value="删除" onclick="delP('${pd.PATH}','${pd.PICTURES_ID }');" />
 											<input type="hidden" name="tpz" id="tpz" value="${pd.PATH }"/>
 										</c:if>

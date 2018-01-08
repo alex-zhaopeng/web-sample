@@ -137,6 +137,12 @@
 											</tr>
 											<tr>
 												<td style="width:125px;text-align: right;padding-top: 13px;">商业险:</td>
+
+
+												<%--
+													图片对应ID 是 文件服务器图片文件的UUID
+													<%=basePath%>pictures/image/${图片对应ID}
+												--%>
 												<td>
 													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="商业险保单" class="bwGal">
 														<img src="<%=basePath%>static/ace/images/gallery/image-1.jpg" alt="商业险保单" width="100">

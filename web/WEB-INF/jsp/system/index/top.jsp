@@ -25,3 +25,5 @@
 		<script src="static/ace/js/html5shiv.js"></script>
 		<script src="static/ace/js/respond.js"></script>
 		<![endif]-->
+		<%@ include file="functions.jsp"%>
+

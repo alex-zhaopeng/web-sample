@@ -75,7 +75,7 @@
 	<!-- 修改 -->
 	<update id="edit" parameterType="pd">
 		update  <include refid="tableName"></include>
-			set 
+			set PICTURES_ID = #{NEW_PICTURES_ID},
 				TITLE = #{TITLE},
 				PATH = #{PATH},
 				<if test="NAME != null and NAME != ''">

@@ -90,11 +90,14 @@
 									<tr>
 										<td class='center' style="width: 30px;">${vs.index+1}</td>
 										<td class="center">
+										<a href="<%=basePath%>pictures/image/${var.PICTURES_ID}" title="${var.TITLE}" class="bwGal"><img src="<%=basePath%>pictures/image/${var.PICTURES_ID}" alt="${var.TITLE}" width="100"></a>
+<%--
 										<a href="<%=basePath%>uploadFiles/uploadImgs/${var.PATH}" title="${var.TITLE}" class="bwGal"><img src="<%=basePath%>uploadFiles/uploadImgs/${var.PATH}" alt="${var.TITLE}" width="100"></a>
+--%>
 										</td>
 										<td class="center">${var.TITLE}</td>
 										<td class="center" style="width:130px;">
-											<a class="btn btn-xs btn-info" title="选择" onclick="xuanTp('<%=basePath%>uploadFiles/uploadImgs/${var.PATH}');">选择 </a>
+											<a class="btn btn-xs btn-info" title="选择" onclick="xuanTp('<%=basePath%>pictures/image/${var.PICTURES_ID}');">选择 </a>
 										</td>
 									</tr>
 								
