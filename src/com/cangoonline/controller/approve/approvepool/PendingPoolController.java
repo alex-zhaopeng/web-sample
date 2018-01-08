@@ -33,7 +33,7 @@ import com.cangoonline.service.approve.approvepool.ApprovePoolManager;
  */
 @Controller
 @RequestMapping(value="/pendingpool")
-public class ApprovePoolController extends BaseController {
+public class PendingPoolController extends BaseController {
 	
 	String menuUrl = "pendingpool/list.do"; //菜单地址(权限用)
 	@Resource(name="approvepoolService")
@@ -53,39 +53,6 @@ public class ApprovePoolController extends BaseController {
 		return mv;
 	}
 
-
-	/**删除
-	 * @param out
-	 * @throws Exception
-	 */
-	@RequestMapping(value="/delete")
-	public void delete(PrintWriter out) throws Exception{
-		logBefore(logger, Jurisdiction.getUsername()+"删除ApprovePool");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return;} //校验权限
-		PageData pd = new PageData();
-		pd = this.getPageData();
-		approvepoolService.delete(pd);
-		out.write("success");
-		out.close();
-	}
-	
-	/**修改
-	 * @param
-	 * @throws Exception
-	 */
-	@RequestMapping(value="/edit")
-	public ModelAndView edit() throws Exception{
-		logBefore(logger, Jurisdiction.getUsername()+"修改ApprovePool");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "edit")){return null;} //校验权限
-		ModelAndView mv = this.getModelAndView();
-		PageData pd = new PageData();
-		pd = this.getPageData();
-		approvepoolService.edit(pd);
-		mv.addObject("msg","success");
-		mv.setViewName("save_result");
-		return mv;
-	}
-	
 	/**列表
 	 * @param page
 	 * @throws Exception
@@ -110,32 +77,18 @@ public class ApprovePoolController extends BaseController {
 		return mv;
 	}
 	
-	/**去新增页面
+
+	 /**去查看页面
 	 * @param
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/goAdd")
-	public ModelAndView goAdd()throws Exception{
-		ModelAndView mv = this.getModelAndView();
-		PageData pd = new PageData();
-		pd = this.getPageData();
-		mv.setViewName("approve/approvepool/approvepool_edit");
-		mv.addObject("msg", "save");
-		mv.addObject("pd", pd);
-		return mv;
-	}	
-	
-	 /**去修改页面
-	 * @param
-	 * @throws Exception
-	 */
-	@RequestMapping(value="/goEdit")
-	public ModelAndView goEdit()throws Exception{
+	@RequestMapping(value="/view")
+	public ModelAndView view()throws Exception{
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
 		pd = approvepoolService.findById(pd);	//根据ID读取
-		mv.setViewName("approve/approvepool/approvepool_edit");
+		mv.setViewName("approve/approvepool/approvepool_view");
 		mv.addObject("msg", "edit");
 		mv.addObject("pd", pd);
 		return mv;

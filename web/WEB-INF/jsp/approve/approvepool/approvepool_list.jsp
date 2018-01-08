@@ -264,7 +264,7 @@
 			 var diag = new top.Dialog();
 			 diag.Drag=true;
 			 diag.Title ="申请["+applySerialno+"]详情";
-			 diag.URL = '<%=basePath%>pendingpool/goEdit.do?APPROVEPOOL_ID='+Id;
+			 diag.URL = '<%=basePath%>pendingpool/view.do?APPROVEPOOL_ID='+Id;
 			 diag.Width = 600;
 			 diag.Height = 800;
 			 diag.Modal = true;				//有无遮罩窗口

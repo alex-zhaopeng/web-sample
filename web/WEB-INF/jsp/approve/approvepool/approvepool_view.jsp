@@ -60,16 +60,16 @@
 										<table id="table_report" class="table table-striped table-bordered table-hover">
 											<tr>
 												<td style="width:125px;text-align: right;padding-top: 13px;">申请编号：</td>
-												<td><input type="text" name="SERIALNO" id="SERIALNO" value="${pd.APPLYSERIALNO}" maxlength="40" placeholder="这里输入备注1" title="申请编号" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="SERIALNO" id="SERIALNO" value="${pd.APPLYSERIALNO}" maxlength="40" placeholder="这里输入备注1" title="申请编号" style="width:98%;"/></td>
 
 												<td style="width:125px;text-align: right;padding-top: 13px;">申请金额：</td>
-												<td><input type="text" name="APPLYSERIALNO" id="APPLYSERIALNO" value="${pd.APPLYSERIALNO}" maxlength="32" placeholder="这里输入备注2" title="申请金额" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="APPLYSERIALNO" id="APPLYSERIALNO" value="${pd.APPLYSERIALNO}" maxlength="32" placeholder="这里输入备注2" title="申请金额" style="width:98%;"/></td>
 											</tr>
 											<tr>
 												<td style="width:125px;text-align: right;padding-top: 13px;">备注3:</td>
-												<td><input type="text" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/></td>
 												<td style="width:125px;text-align: right;padding-top: 13px;">备注4:</td>
-												<td><input type="text" name="CUSTOMERID" id="CUSTOMERID" value="${pd.CUSTOMERID}" maxlength="32" placeholder="这里输入备注4" title="备注4" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="CUSTOMERID" id="CUSTOMERID" value="${pd.CUSTOMERID}" maxlength="32" placeholder="这里输入备注4" title="备注4" style="width:98%;"/></td>
 											</tr>
 										</table>
 								</div>
@@ -94,16 +94,16 @@
 										<table id="table_report" class="table table-striped table-bordered table-hover">
 											<tr>
 												<td style="width:125px;text-align: right;padding-top: 13px;">备注1:</td>
-												<td><input type="text" name="SERIALNO" id="SERIALNO" value="${pd.SERIALNO}" maxlength="40" placeholder="这里输入备注1" title="备注1" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="SERIALNO" id="SERIALNO" value="${pd.SERIALNO}" maxlength="40" placeholder="这里输入备注1" title="备注1" style="width:98%;"/></td>
 
 												<td style="width:125px;text-align: right;padding-top: 13px;">备注2:</td>
-												<td><input type="text" name="APPLYSERIALNO" id="APPLYSERIALNO" value="${pd.APPLYSERIALNO}" maxlength="32" placeholder="这里输入备注2" title="备注2" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="APPLYSERIALNO" id="APPLYSERIALNO" value="${pd.APPLYSERIALNO}" maxlength="32" placeholder="这里输入备注2" title="备注2" style="width:98%;"/></td>
 											</tr>
 											<tr>
 												<td style="width:125px;text-align: right;padding-top: 13px;">备注3:</td>
-												<td><input type="text" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/></td>
 												<td style="width:125px;text-align: right;padding-top: 13px;">备注4:</td>
-												<td><input type="text" name="CUSTOMERID" id="CUSTOMERID" value="${pd.CUSTOMERID}" maxlength="32" placeholder="这里输入备注4" title="备注4" style="width:98%;"/></td>
+												<td><input type="text" disabled="disabled" name="CUSTOMERID" id="CUSTOMERID" value="${pd.CUSTOMERID}" maxlength="32" placeholder="这里输入备注4" title="备注4" style="width:98%;"/></td>
 											</tr>
 										</table>
 									</div>
@@ -128,11 +128,11 @@
 											<tr>
 												<td style="width:125px;text-align: right;padding-top: 13px;">商业险:</td>
 												<td>
-													<input type="text" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/>
+													<input type="text" disabled="disabled" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/>
 												</td>
 												<td style="width:125px;text-align: right;padding-top: 13px;">车船税:</td>
 												<td>
-													<input type="text" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/>
+													<input type="text" disabled="disabled" name="APPROVESERIALNO" id="APPROVESERIALNO" value="${pd.APPROVESERIALNO}" maxlength="32" placeholder="这里输入备注3" title="备注3" style="width:98%;"/>
 												</td>
 											</tr>
 											<tr>
