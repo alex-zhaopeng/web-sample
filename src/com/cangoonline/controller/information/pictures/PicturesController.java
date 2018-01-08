@@ -140,7 +140,8 @@ public class PicturesController extends BaseController {
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
 		try {
-			URL realUrl = new URL(baseImageUrl+id);
+
+			URL realUrl = new URL(baseImageUrl+id.split("\\.")[0]);
 			// 打开和URL之间的连接
 			URLConnection connection = realUrl.openConnection();
 			// 设置通用的请求属性
@@ -151,6 +152,7 @@ public class PicturesController extends BaseController {
 			connection.connect();
 			inputStream = connection.getInputStream();
 			outputStream = response.getOutputStream();
+
 			byte[] buf = new byte[1024];
 			int bytes = 0;
 			while ((bytes = inputStream.read(buf)) != -1) {
@@ -232,7 +234,7 @@ public class PicturesController extends BaseController {
 				fileName = FileUpload.fileUp(file, filePath, this.get32UUID());			//执行上传
 
 				// TODO 上传图片到文件服务器
-				String baseUrl = "http://192.168.11.11:8889/insurance-server/doc/image/upload";
+				String baseUrl = baseUploadUrl;
 				String result = JavaFileToFormUpload.send(baseUrl, filePath +"/"+ fileName);
 				JSONObject jsonObject = JSON.parseObject(result);
 				String uuid = jsonObject.getString("body");
