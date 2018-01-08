@@ -144,19 +144,19 @@
 													<%=basePath%>pictures/image/${图片对应ID}
 												--%>
 												<td>
-													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="商业险保单" class="bwGal">
+													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="商业险保单" class="lightsGal">
 														<img src="<%=basePath%>static/ace/images/gallery/image-1.jpg" alt="商业险保单" width="100">
 													</a>&nbsp;&nbsp;
-													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="商业险发票" class="bwGal">
+													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="商业险发票" class="lightsGal">
 														<img src="<%=basePath%>static/ace/images/gallery/image-1.jpg" alt="商业险发票" width="100">
 													</a>
 												</td>
 												<td style="width:125px;text-align: right;padding-top: 13px;">车船税/交强险:</td>
 												<td>
-													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="车船税/交强险保单" class="bwGal">
+													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="车船税/交强险保单" class="lightsGal">
 														<img src="<%=basePath%>static/ace/images/gallery/image-1.jpg" alt="" width="100">
 													</a>&nbsp;&nbsp;
-													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="车船税/交强险发票" class="bwGal">
+													<a href="<%=basePath%>static/ace/images/gallery/image-1.jpg" title="车船税/交强险发票" class="lightsGal">
 														<img src="<%=basePath%>static/ace/images/gallery/image-1.jpg" alt="车船税/交强险发票" width="100">
 													</a>
 												</td>
